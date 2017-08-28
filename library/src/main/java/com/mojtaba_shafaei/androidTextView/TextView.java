@@ -8,7 +8,7 @@ import android.content.res.TypedArray;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 
-import com.mojtaba_shafaei.android.PersianFont;
+import com.mojtaba_shafaei.persianFont.PersianFont;
 
 public class TextView extends AppCompatTextView {
     private volatile boolean showNumberAsPersian = false;
