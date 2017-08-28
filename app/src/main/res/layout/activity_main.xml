@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.mojtaba_shafaei.com.MainActivity">
+    tools:context=".MainActivity">
 
-    <com.mojtaba_shafaei.android.TextView
+    <com.mojtaba_shafaei.androidTextView.TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
         app:fontType="iran_sans_bold" />
 
-    <com.mojtaba_shafaei.android.TextView
+    <com.mojtaba_shafaei.androidTextView.TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

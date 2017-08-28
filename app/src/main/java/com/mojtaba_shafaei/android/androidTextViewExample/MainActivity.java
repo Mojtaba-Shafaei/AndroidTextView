@@ -1,4 +1,4 @@
-package android.mojtaba_shafaei.com;
+package com.mojtaba_shafaei.android.androidTextViewExample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.mojtaba_shafaei.android;
+package com.mojtaba_shafaei.androidTextView;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+
+import com.mojtaba_shafaei.android.PersianFont;
 
 public class TextView extends AppCompatTextView {
     private volatile boolean showNumberAsPersian = false;
@@ -101,14 +103,14 @@ public class TextView extends AppCompatTextView {
     private void readAttrs(Context context, AttributeSet attrs) {
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
-                R.styleable.TextView,
+                com.mojtaba_shafaei.androidTextView.R.styleable.TextView,
                 0, 0);
 
         try {
-            Integer typeFace = a.getInteger(R.styleable.TextView_fontType, PersianFont.IRANSANS_NORMAL);
+            Integer typeFace = a.getInteger(com.mojtaba_shafaei.androidTextView.R.styleable.TextView_fontType, PersianFont.IRANSANS_NORMAL);
             setTypeface(PersianFont.get(context, typeFace));
 
-            showNumberAsPersian = a.getBoolean(R.styleable.TextView_showDigitAsPersian, false);
+            showNumberAsPersian = a.getBoolean(com.mojtaba_shafaei.androidTextView.R.styleable.TextView_showDigitAsPersian, false);
             if (showNumberAsPersian) {
                 setText(Persian.format(getText().toString()));
             }

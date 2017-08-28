@@ -1,4 +1,4 @@
-package com.mojtaba_shafaei.android;
+package com.mojtaba_shafaei.androidTextView;
 
 import java.text.NumberFormat;
 import java.util.Locale;
