@@ -103,14 +103,14 @@ public class TextView extends AppCompatTextView {
     private void readAttrs(Context context, AttributeSet attrs) {
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
-                com.mojtaba_shafaei.androidTextView.R.styleable.TextView,
+                R.styleable.TextView,
                 0, 0);
 
         try {
-            Integer typeFace = a.getInteger(com.mojtaba_shafaei.androidTextView.R.styleable.TextView_fontType, PersianFont.IRANSANS_NORMAL);
+            Integer typeFace = a.getInteger(R.styleable.TextView_fontType, PersianFont.IRANSANS_NORMAL);
             setTypeface(PersianFont.get(context, typeFace));
 
-            showNumberAsPersian = a.getBoolean(com.mojtaba_shafaei.androidTextView.R.styleable.TextView_showDigitAsPersian, false);
+            showNumberAsPersian = a.getBoolean(R.styleable.TextView_showDigitAsPersian, false);
             if (showNumberAsPersian) {
                 setText(Persian.format(getText().toString()));
             }
