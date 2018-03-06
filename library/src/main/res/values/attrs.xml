@@ -7,6 +7,7 @@
             <enum name="iran_sans_normal" value="3" />
             <enum name="iran_sans_medium" value="4" />
             <enum name="iran_sans_bold" value="5" />
+            <enum name="iran_sans_black" value="6" />
 
             <enum name="yekan_regular" value="10" />
             <enum name="yekan_light" value="11" />
