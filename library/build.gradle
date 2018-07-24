@@ -24,8 +24,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:multidex:1.0.2'
-    compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
-    compile 'com.github.Mojtaba-Shafaei:AndroidPersianFont:1.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.supportVersion"
+    implementation 'com.github.Mojtaba-Shafaei:AndroidPersianFont:1.1.0'
 }

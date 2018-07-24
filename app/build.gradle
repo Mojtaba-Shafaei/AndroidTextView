@@ -20,9 +20,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
-    compile "com.android.support:design:$rootProject.ext.supportVersion"
-    compile 'com.android.support:multidex:1.0.2'
-    compile project(':library')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.supportVersion"
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation project(':library')
 }
