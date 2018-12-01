@@ -21,7 +21,7 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "androidx.appcompat:appcompat:$rootProject.ext.supportVersion"
-    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     implementation project(':library')
 }
