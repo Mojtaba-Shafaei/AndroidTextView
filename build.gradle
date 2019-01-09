@@ -19,7 +19,11 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://jitpack.io'
+            credentials { username "jp_uceojd4bfoj2absrqs2id5smss" }
+        }
+
     }
 }
 
@@ -29,7 +33,7 @@ task clean(type: Delete) {
 ext {
     minSdkVersion = 14
     targetSdkVersion = 28
-    compileSdkVersion = 'android-28'
+    compileSdkVersion = 28
     buildToolsVersion = '28.0.3'
 
     supportLibraryVersion = '28.0.0'

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TextView">
-        <attr name="fontType" format="integer">
-            <enum name="iran_sans_ultra_light" value="1" />
-            <enum name="iran_sans_light" value="2" />
-            <enum name="iran_sans_normal" value="3" />
-            <enum name="iran_sans_medium" value="4" />
-            <enum name="iran_sans_bold" value="5" />
-            <enum name="iran_sans_black" value="6" />
+  <declare-styleable name="TextView">
+    <attr format="integer" name="fontType">
+      <enum name="iran_sans_ultra_light" value="1"/>
+      <enum name="iran_sans_light" value="2"/>
+      <enum name="iran_sans_normal" value="3"/>
+      <enum name="iran_sans_medium" value="4"/>
+      <enum name="iran_sans_bold" value="5"/>
+      <enum name="iran_sans_black" value="6"/>
 
-            <enum name="yekan_regular" value="10" />
-            <enum name="yekan_light" value="11" />
-            <enum name="yekan_bold" value="12" />
-        </attr>
+      <enum name="yekan_regular" value="10"/>
+      <enum name="yekan_light" value="11"/>
+      <enum name="yekan_bold" value="12"/>
+      <enum name="yekan_black" value="13"/>
+      <enum name="yekan_extra_black" value="14"/>
+      <enum name="yekan_extra_bold" value="15"/>
+      <enum name="yekan_medium" value="16"/>
+      <enum name="yekan_thin" value="17"/>
+    </attr>
 
-        <attr name="showDigitAsPersian" format="boolean" />
-    </declare-styleable>
+    <attr format="boolean" name="showDigitAsPersian"/>
+  </declare-styleable>
 </resources>

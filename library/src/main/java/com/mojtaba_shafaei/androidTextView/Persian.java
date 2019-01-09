@@ -3,7 +3,7 @@ package com.mojtaba_shafaei.androidTextView;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-class Persian {
+public class Persian {
 
     private static Locale loc;
     private static NumberFormat nf;
@@ -52,7 +52,7 @@ class Persian {
         return input;
     }
 
-    public static String rtl(String input) {
+    static String rtl(String input) {
         return "\u200F" + input;
     }
 
