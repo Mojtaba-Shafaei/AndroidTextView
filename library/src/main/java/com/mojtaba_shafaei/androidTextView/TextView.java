@@ -8,90 +8,87 @@ import android.content.res.TypedArray;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import com.mojtaba_shafaei.persianFont.PersianFont;
+import com.mojtaba_shafaei.persianFont.PersianFont.FontEnum;
 
-public class TextView extends AppCompatTextView{
+public class TextView extends AppCompatTextView {
 
 private volatile boolean showNumberAsPersian = false;
 
-public TextView(Context context){
+public TextView(Context context) {
   super(context);
   init(context);
 }
 
-public TextView(Context context, AttributeSet attrs){
+public TextView(Context context, AttributeSet attrs) {
   super(context, attrs);
   init(context);
   readAttrs(context, attrs);
 }
 
-public TextView(Context context, AttributeSet attrs, int defStyleAttr){
+public TextView(Context context, AttributeSet attrs, int defStyleAttr) {
   super(context, attrs, defStyleAttr);
   init(context);
   readAttrs(context, attrs);
 }
 
-private void init(Context context){
-  if(!isInEditMode()){
-    //setLineSpacing(1.5f, 1f);
-    setTextIsSelectable(false);
-  }
+private void init(Context context) {
 }
 
 @Override
-public void setText(CharSequence text, BufferType type){
-  if(showNumberAsPersian){
+public void setText(CharSequence text, BufferType type) {
+  if (showNumberAsPersian) {
     text = Persian.format(text.toString());
   }
   super.setText(text, type);
 }
 
-public void setTextWithAnimation(final CharSequence text, ObjectAnimator... animators){
+public void setTextWithAnimation(final CharSequence text, ObjectAnimator... animators) {
   AnimatorSet animatorSet = new AnimatorSet();
   animatorSet.setDuration(500);
 
-  if(animators == null || animators.length == 0){
+  if (animators == null || animators.length == 0) {
     animators = new ObjectAnimator[2];
     animators[0] = ObjectAnimator.ofFloat(this, "alpha", 1f, 0f);
-    animators[0].addListener(new Animator.AnimatorListener(){
+    animators[0].addListener(new Animator.AnimatorListener() {
       @Override
-      public void onAnimationStart(Animator animator){
+      public void onAnimationStart(Animator animator) {
 
       }
 
       @Override
-      public void onAnimationEnd(Animator animator){
+      public void onAnimationEnd(Animator animator) {
         setText("");
       }
 
       @Override
-      public void onAnimationCancel(Animator animator){
+      public void onAnimationCancel(Animator animator) {
 
       }
 
       @Override
-      public void onAnimationRepeat(Animator animator){
+      public void onAnimationRepeat(Animator animator) {
 
       }
     });
     animators[1] = ObjectAnimator.ofFloat(this, "alpha", 0f, 1f);
-    animators[1].addListener(new Animator.AnimatorListener(){
+    animators[1].addListener(new Animator.AnimatorListener() {
       @Override
-      public void onAnimationStart(Animator animator){
+      public void onAnimationStart(Animator animator) {
         setText(text);
       }
 
       @Override
-      public void onAnimationEnd(Animator animator){
+      public void onAnimationEnd(Animator animator) {
         setAlpha(1f);
       }
 
       @Override
-      public void onAnimationCancel(Animator animator){
+      public void onAnimationCancel(Animator animator) {
 
       }
 
       @Override
-      public void onAnimationRepeat(Animator animator){
+      public void onAnimationRepeat(Animator animator) {
 
       }
     });
@@ -100,21 +97,72 @@ public void setTextWithAnimation(final CharSequence text, ObjectAnimator... anim
   animatorSet.start();
 }
 
-private void readAttrs(Context context, AttributeSet attrs){
+private void readAttrs(Context context, AttributeSet attrs) {
   TypedArray a = context.getTheme().obtainStyledAttributes(
-      attrs,
-      R.styleable.TextView,
-      0, 0);
+    attrs,
+    R.styleable.TextView,
+    0, 0);
 
-  try{
-    Integer typeFace = a.getInteger(R.styleable.TextView_fontType, PersianFont.IRANSANS_NORMAL);
-    setTypeface(PersianFont.get(context, typeFace));
+  try {
+    int typeFace = 3;
+    if (a.hasValue(R.styleable.TextView_fontType)) {
+      typeFace = a.getInteger(R.styleable.TextView_fontType, 3);//iransans normal
+    }
+
+    FontEnum lvFontEnum = FontEnum.IRANSANS_NORMAL;
+    switch (typeFace) {
+      case 1:
+        lvFontEnum = FontEnum.IRAN_SANS_ULTRA_LIGHT;
+        break;
+      case 2:
+        lvFontEnum = FontEnum.IRANSANS_LIGHT;
+        break;
+      case 3:
+        lvFontEnum = FontEnum.IRANSANS_NORMAL;
+        break;
+      case 4:
+        lvFontEnum = FontEnum.IRANSANS_MEDIUM;
+        break;
+      case 5:
+        lvFontEnum = FontEnum.IRANSANS_BOLD;
+        break;
+      case 6:
+        lvFontEnum = FontEnum.IRANSANS_BLACK;
+        break;
+
+      case 10:
+        lvFontEnum = FontEnum.YEKAN_REGULAR;
+        break;
+      case 11:
+        lvFontEnum = FontEnum.YEKAN_LIGHT;
+        break;
+      case 12:
+        lvFontEnum = FontEnum.YEKAN_BOLD;
+        break;
+      case 13:
+        lvFontEnum = FontEnum.YEKAN_BLACK;
+        break;
+      case 14:
+        lvFontEnum = FontEnum.YEKAN_EXTRA_BLACK;
+        break;
+      case 15:
+        lvFontEnum = FontEnum.YEKAN_EXTRA_BOLD;
+        break;
+      case 16:
+        lvFontEnum = FontEnum.YEKAN_MEDIUM;
+        break;
+      case 17:
+        lvFontEnum = FontEnum.YEKAN_THIN;
+        break;
+
+    }
+    setTypeface(PersianFont.get(context, lvFontEnum));
 
     showNumberAsPersian = a.getBoolean(R.styleable.TextView_showDigitAsPersian, false);
-    if(showNumberAsPersian){
+    if (showNumberAsPersian) {
       setText(Persian.format(getText().toString()));
     }
-  } finally{
+  } finally {
     a.recycle();
   }
 }
